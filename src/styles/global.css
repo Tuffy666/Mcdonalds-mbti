@@ -710,6 +710,23 @@ a:focus-visible,
   z-index: 80;
 }
 
+/* 手动复制弹窗里的文本域 */
+.copy-area {
+  width: 100%;
+  min-height: 180px;
+  padding: var(--s3);
+  border: 1.5px dashed var(--c-muted);
+  border-radius: var(--r-sm);
+  background: #fffdf6;
+  color: var(--c-ink);
+  font-size: 12.5px;
+  line-height: 1.6;
+  font-family: inherit;
+  resize: vertical;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 /* ------------------------------ 调试页 ------------------------------ */
 
 .debug-grid {

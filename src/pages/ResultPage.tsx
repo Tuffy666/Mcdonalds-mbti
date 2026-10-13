@@ -30,6 +30,7 @@ export default function ResultPage() {
   const [toast, setToast] = useState('');
   const [disclaimerOpen, setDisclaimerOpen] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [fallbackCopy, setFallbackCopy] = useState<string | null>(null);
   const posterRef = useRef<HTMLDivElement>(null);
 
   const profile = useMemo(() => (result ? buildClipboardPayload(result as any) : null), [result]);
@@ -81,7 +82,12 @@ export default function ResultPage() {
 
   const onCopy = async (text: string, label: string) => {
     const ok = await copyText(text);
-    setToast(ok ? `${label}已复制` : '复制失败，请长按文字手动选择');
+    if (ok) {
+      setToast(`${label}已复制`);
+    } else {
+      // 自动复制被 WebView/浏览器拒绝时，弹出手动复制面板（内容自动全选）
+      setFallbackCopy(text);
+    }
   };
 
   const onShare = async () => {
@@ -276,6 +282,45 @@ export default function ResultPage() {
       <img src={assetUrl('assets/hero.svg')} alt="" aria-hidden="true" style={{ display: 'none' }} />
 
       <DisclaimerModal open={disclaimerOpen} onClose={() => setDisclaimerOpen(false)} />
+
+      {fallbackCopy !== null ? (
+        <div className="modal-backdrop" role="dialog" aria-modal="true" aria-label="手动复制">
+          <div className="modal">
+            <h2>请手动复制</h2>
+            <p>
+              当前浏览器环境限制了自动复制。内容已为你全选 —— 手机长按文字选择「拷贝」，
+              电脑按 <strong>Ctrl+C</strong>（Mac 为 ⌘C）即可。
+            </p>
+            <textarea
+              className="copy-area"
+              readOnly
+              value={fallbackCopy}
+              autoFocus
+              onFocus={(e) => e.currentTarget.select()}
+              rows={8}
+            />
+            <div className="btn-row" style={{ marginTop: 16 }}>
+              <button
+                type="button"
+                className="btn"
+                onClick={async () => {
+                  const ok = await copyText(fallbackCopy);
+                  if (ok) {
+                    setFallbackCopy(null);
+                    setToast('已复制');
+                  }
+                }}
+              >
+                再试一次自动复制
+              </button>
+              <button type="button" className="btn btn--ghost" onClick={() => setFallbackCopy(null)}>
+                关闭
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
       {toast ? <Toast text={toast} onDone={() => setToast('')} /> : null}
     </Page>
   );

@@ -171,7 +171,9 @@ node scripts/plan-meal.mjs --profile profile.json --menu examples/menu-sample.js
 ### 示例 4：完整链路（WorkBuddy + 麦当劳 MCP）
 
 1. 到 <https://open.mcd.cn/mcp> 用手机号申请 MCP Token。
-2. WorkBuddy → 左侧【专家·技能·连接器】→【连接器】→ 右上角【自定义连接器】→【配置 MCP】：
+2. WorkBuddy → 左侧【专家·技能·连接器】→【连接器】→ 右上角【自定义连接器】→【配置 MCP】，
+   填入仓库根目录 **[`mcp-config.example.json`](./mcp-config.example.json)** 的内容，
+   把 `${MCD_MCP_TOKEN}` 替换成你自己的 Token：
 
    ```json
    {
@@ -179,7 +181,7 @@ node scripts/plan-meal.mjs --profile profile.json --menu examples/menu-sample.js
        "mcd-mcp": {
          "type": "streamablehttp",
          "url": "https://mcp.mcd.cn",
-         "headers": { "Authorization": "Bearer YOUR_MCP_TOKEN" }
+         "headers": { "Authorization": "Bearer ${MCD_MCP_TOKEN}" }
        }
      }
    }
@@ -200,6 +202,7 @@ maimen-personality-mcp/
 ├── README.md                   本文件
 ├── CONTEST_DECLARATION.md      大赛官方参赛声明（原文，未做任何修改）
 ├── MCP_INTEGRATION.md          MCP Server / Tool / 调用流程 / 业务价值
+├── mcp-config.example.json     脱敏 MCP 配置示例（仅环境变量占位符，无真实凭证）
 ├── SKILL.md                    Agent Skill 主体（触发条件、执行流程、硬性边界）
 ├── workbuddy.md                WorkBuddy 开发对话上下文
 │

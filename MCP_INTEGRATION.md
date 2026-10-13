@@ -11,12 +11,14 @@
 | 提供方 | 麦当劳中国（Model Context Protocol 开放服务） |
 | 接入地址 | `https://mcp.mcd.cn` |
 | 传输协议 | Streamable HTTP |
-| 鉴权方式 | 请求头 `Authorization: Bearer <MCP_MCP_TOKEN>` |
+| 鉴权方式 | 请求头 `Authorization: Bearer <MCD_MCP_TOKEN>` |
 | 覆盖范围 | 中国大陆地区（不含港澳台） |
 | 速率限制 | 600 次/分钟，超限返回 429 |
 | 开放平台官网 | https://open.mcd.cn/mcp |
 
-在 WorkBuddy 中配置（连接器 → 自定义连接器 → 配置 MCP → 填入并保存）：
+在 WorkBuddy 中配置（连接器 → 自定义连接器 → 配置 MCP → 填入并保存）。
+仓库根目录的 **[`mcp-config.example.json`](./mcp-config.example.json)** 就是这段配置的脱敏版本，
+只使用环境变量占位符 `${MCD_MCP_TOKEN}`，不含任何真实凭证：
 
 ```json
 {
@@ -25,7 +27,7 @@
       "type": "streamablehttp",
       "url": "https://mcp.mcd.cn",
       "headers": {
-        "Authorization": "Bearer YOUR_MCP_TOKEN"
+        "Authorization": "Bearer ${MCD_MCP_TOKEN}"
       }
     }
   }
@@ -33,7 +35,8 @@
 ```
 
 > ⚠️ Token 通过 `open.mcd.cn/mcp` 用手机号自行申请。**本仓库不包含、也永远不会包含任何真实 Token**，
-> 所有文档与配置一律使用 `YOUR_MCP_TOKEN` 占位符（见 `CONTEST_DECLARATION.md` 的信息安全声明）。
+> 所有文档与配置一律使用 `${MCD_MCP_TOKEN}` 环境变量占位符
+> （见 `CONTEST_DECLARATION.md` 的信息安全声明）。
 > `.gitignore` 已排除 `.env`、`mcp.json`、`*.token`。
 
 ## 2. 用到的 Tool

@@ -7,21 +7,29 @@ import { DISCLAIMER_TEXT } from '../config/copy';
 
 export function ProductArt({
   image,
+  productImage,
   alt,
   product,
   theme,
   className = 'poster-art',
 }: {
   image: string;
+  /** 麦当劳官方产品实拍图（本地打包，无跨域问题）；缺省或加载失败时回退到原创插画 */
+  productImage?: string;
   alt: string;
   product: string;
   theme: string;
   className?: string;
 }) {
-  const [failed, setFailed] = useState(false);
+  // 展示层级：0=官方产品实拍图 → 1=原创几何插画 → 2=色块占位；上一级加载失败自动降级（§16）
+  const [stage, setStage] = useState(productImage ? 0 : 1);
+  const [prevProduct, setPrevProduct] = useState(productImage);
+  if (productImage !== prevProduct) {
+    setPrevProduct(productImage);
+    setStage(productImage ? 0 : 1);
+  }
 
-  // 图片加载失败时降级为色块 + 首字占位（§16）
-  if (failed) {
+  if (stage === 2 || (stage === 0 && !productImage)) {
     return (
       <div
         className={className}
@@ -39,13 +47,14 @@ export function ProductArt({
     );
   }
 
+  const src = assetUrl(stage === 0 && productImage ? productImage : image);
   return (
     <img
       className={className}
-      src={assetUrl(image)}
+      src={src}
       alt={alt}
       loading="lazy"
-      onError={() => setFailed(true)}
+      onError={() => setStage(stage === 0 ? 1 : 2)}
     />
   );
 }

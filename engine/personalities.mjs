@@ -21,6 +21,7 @@
  * @property {string} shareQuote
  * @property {string} themeColor
  * @property {string} image
+ * @property {string} [productImage] 麦当劳官方产品实拍图（来自 MCP query-meals 的 image 字段），加载失败时回退到 image 插画
  * @property {string[]} mealKeywords 用于 MCP 选品的人格关键词
  */
 
@@ -56,6 +57,7 @@ export const personalities = {
     shareQuote: '我不是爱管，我只是不想看你们选到早餐时段结束。',
     themeColor: GROUP_THEME.NT.color,
     image: 'assets/personalities/entj-big-mac.svg',
+    productImage: 'assets/products/entj.png',
     mealKeywords: ['大份量', '套餐组合', '效率优先', '主食必须顶'],
   },
   ENTP: {
@@ -79,6 +81,7 @@ export const personalities = {
     shareQuote: '麦辣不是口味，是我对平庸的最低限度反抗。',
     themeColor: GROUP_THEME.NT.color,
     image: 'assets/personalities/entp-mcspicy.svg',
+    productImage: 'assets/products/entp.png',
     mealKeywords: ['限时新品', '加辣', '隐藏吃法', '换配餐'],
   },
   INTJ: {
@@ -102,6 +105,7 @@ export const personalities = {
     shareQuote: '我没有选择困难，我只是在计算最优解。',
     themeColor: GROUP_THEME.NT.color,
     image: 'assets/personalities/intj-double-cheese.svg',
+    productImage: 'assets/products/intj.png',
     mealKeywords: ['加芝士', '双层加码', '高性价比', '少废话'],
   },
   INTP: {
@@ -125,6 +129,7 @@ export const personalities = {
     shareQuote: '麦乐鸡只有五块，但我的思路不止五种。',
     themeColor: GROUP_THEME.NT.color,
     image: 'assets/personalities/intp-mcnuggets.svg',
+    productImage: 'assets/products/intp.png',
     mealKeywords: ['多酱料组合', '小份试错', '可对比', '方便拆解'],
   },
   ENFJ: {
@@ -148,6 +153,7 @@ export const personalities = {
     shareQuote: '套餐可以少一个，但谁都不能被落下。',
     themeColor: GROUP_THEME.NF.color,
     image: 'assets/personalities/enfj-grilled-chicken.svg',
+    productImage: 'assets/products/enfj.png',
     mealKeywords: ['不辣友好', '可分享', '照顾忌口', '温和口味'],
   },
   ENFP: {
@@ -171,6 +177,7 @@ export const personalities = {
     shareQuote: '我的计划可能会化，但我的快乐最好现在就吃。',
     themeColor: GROUP_THEME.NF.color,
     image: 'assets/personalities/enfp-oreo-mcflurry.svg',
+    productImage: 'assets/products/enfp.gif',
     mealKeywords: ['甜品收尾', '限时口味', '分享型', '快乐优先'],
   },
   INFJ: {
@@ -194,6 +201,7 @@ export const personalities = {
     shareQuote: '热门只是很多人点，喜欢才是我会一直点。',
     themeColor: GROUP_THEME.NF.color,
     image: 'assets/personalities/infj-filet-o-fish.svg',
+    productImage: 'assets/products/infj.png',
     mealKeywords: ['冷门经典', '清淡', '安静搭配', '不跟风'],
   },
   INFP: {
@@ -217,6 +225,7 @@ export const personalities = {
     shareQuote: '我的外壳可以很酥，但请不要随便戳我的馅。',
     themeColor: GROUP_THEME.NF.color,
     image: 'assets/personalities/infp-taro-pie.svg',
+    productImage: 'assets/products/infp.gif',
     mealKeywords: ['甜点情绪价值', '小小仪式感', '季节限定', '慢慢吃'],
   },
   ESTJ: {
@@ -240,6 +249,7 @@ export const personalities = {
     shareQuote: '别问吃什么了，我已经下单了。',
     themeColor: GROUP_THEME.SJ.color,
     image: 'assets/personalities/estj-chicken-steak.svg',
+    productImage: 'assets/products/estj.png',
     mealKeywords: ['大份实在', '一份搞定', '出餐快', '不折腾'],
   },
   ESFJ: {
@@ -263,6 +273,7 @@ export const personalities = {
     shareQuote: '我的喜欢不是嘴上说，是趁热给你带一份。',
     themeColor: GROUP_THEME.SJ.color,
     image: 'assets/personalities/esfj-hash-brown.svg',
+    productImage: 'assets/products/esfj.png',
     mealKeywords: ['早餐场景', '多带一份', '趁热', '照顾同伴'],
   },
   ISTJ: {
@@ -286,6 +297,7 @@ export const personalities = {
     shareQuote: '新品有新品的理由，经典有经典的实力。',
     themeColor: GROUP_THEME.SJ.color,
     image: 'assets/personalities/istj-cheeseburger.svg',
+    productImage: 'assets/products/istj.png',
     mealKeywords: ['经典固定组合', '稳定口味', '用券', '不试错'],
   },
   ISFJ: {
@@ -309,6 +321,7 @@ export const personalities = {
     shareQuote: '我没有站在最中间，但你回头时我通常还在。',
     themeColor: GROUP_THEME.SJ.color,
     image: 'assets/personalities/isfj-mchicken.svg',
+    productImage: 'assets/products/isfj.png',
     mealKeywords: ['简单实用', '不抢风头', '配合度高', '温和'],
   },
   ESTP: {
@@ -332,6 +345,7 @@ export const personalities = {
     shareQuote: '犹豫不会让鸡翅更脆，趁热才会。',
     themeColor: GROUP_THEME.SP.color,
     image: 'assets/personalities/estp-mcspicy-wings.svg',
+    productImage: 'assets/products/estp.png',
     mealKeywords: ['现点现吃', '辣', '限时', '立刻下单'],
   },
   ESFP: {
@@ -355,6 +369,7 @@ export const personalities = {
     shareQuote: '我可以分享快乐，但请不要顺便分享完我的薯条。',
     themeColor: GROUP_THEME.SP.color,
     image: 'assets/personalities/esfp-fries.svg',
+    productImage: 'assets/products/esfp.png',
     mealKeywords: ['分享装', '大家都爱', '聚会场景', '多点一份'],
   },
   ISTP: {
@@ -378,6 +393,7 @@ export const personalities = {
     shareQuote: '少说两句，取餐码给我。',
     themeColor: GROUP_THEME.SP.color,
     image: 'assets/personalities/istp-crispy-chicken.svg',
+    productImage: 'assets/products/istp.png',
     mealKeywords: ['单手吃', '高效解决', '到店取餐', '不复杂'],
   },
   ISFP: {
@@ -401,6 +417,7 @@ export const personalities = {
     shareQuote: '快乐不需要论证，但冰淇淋需要趁早。',
     themeColor: GROUP_THEME.SP.color,
     image: 'assets/personalities/isfp-cone.svg',
+    productImage: 'assets/products/isfp.png',
     mealKeywords: ['甜品优先', '当下感受', '小份即可', '看天气'],
   },
 };

@@ -29,7 +29,8 @@ export function GalleryPage() {
                 <Link className="gallery-card" to={`/gallery/${p.type}`} key={p.type}>
                   <ProductArt
                     image={p.image}
-                    alt={`${p.product}（${p.title}）原创拟人插画`}
+                    productImage={p.productImage}
+                    alt={`${p.product}（${p.title}）官方产品图，加载失败时显示原创拟人插画`}
                     product={p.product}
                     theme={p.themeColor}
                     className="gallery-art"
@@ -90,7 +91,8 @@ export function PersonalityDetailPage() {
 
       <ProductArt
         image={p.image}
-        alt={`${p.product}（${p.title}）原创拟人插画`}
+        productImage={p.productImage}
+        alt={`${p.product}（${p.title}）官方产品图，加载失败时显示原创拟人插画`}
         product={p.product}
         theme={p.themeColor}
         className="poster-art"

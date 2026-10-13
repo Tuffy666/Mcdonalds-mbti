@@ -107,7 +107,8 @@ export default function ResultPage() {
         {/* 1. 产品图与 MBTI 字母 */}
         <ProductArt
           image={p.image}
-          alt={`${p.product}（${p.title}）原创拟人插画`}
+          productImage={p.productImage}
+          alt={`${p.product}（${p.title}）官方产品图，加载失败时显示原创拟人插画`}
           product={p.product}
           theme={theme}
         />

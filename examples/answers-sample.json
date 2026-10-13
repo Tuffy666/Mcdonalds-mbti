@@ -1,0 +1,22 @@
+[
+  { "questionIndex": 0, "optionIndex": 3, "durationMs": 4200 },
+  { "questionIndex": 1, "optionIndex": 2, "durationMs": 5100 },
+  { "questionIndex": 2, "optionIndex": 3, "durationMs": 3900 },
+  { "questionIndex": 3, "optionIndex": 2, "durationMs": 4600 },
+  { "questionIndex": 4, "optionIndex": 3, "durationMs": 8800 },
+  { "questionIndex": 5, "optionIndex": 3, "durationMs": 7300 },
+  { "questionIndex": 6, "optionIndex": 3, "durationMs": 3200 },
+  { "questionIndex": 7, "optionIndex": 3, "durationMs": 4400 },
+  { "questionIndex": 8, "optionIndex": 0, "durationMs": 3100 },
+  { "questionIndex": 9, "optionIndex": 0, "durationMs": 2800 },
+  { "questionIndex": 10, "optionIndex": 0, "durationMs": 3500 },
+  { "questionIndex": 11, "optionIndex": 1, "durationMs": 6200 },
+  { "questionIndex": 12, "optionIndex": 1, "durationMs": 5400 },
+  { "questionIndex": 13, "optionIndex": 1, "durationMs": 4900 },
+  { "questionIndex": 14, "optionIndex": 1, "durationMs": 5800 },
+  { "questionIndex": 15, "optionIndex": 1, "durationMs": 4100 },
+  { "questionIndex": 16, "optionIndex": 1, "durationMs": 3300 },
+  { "questionIndex": 17, "optionIndex": 1, "durationMs": 4700 },
+  { "questionIndex": 18, "optionIndex": 1, "durationMs": 5200 },
+  { "questionIndex": 19, "optionIndex": 2, "durationMs": 3900 }
+]

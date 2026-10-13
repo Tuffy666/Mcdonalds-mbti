@@ -1,0 +1,28 @@
+{
+  "_comment": "示例菜单，结构对齐麦当劳 MCP query-meals 返回结果的归一化形式。真实运行时请用 MCP 实时返回覆盖本文件。",
+  "storeCode": "DEMO-001",
+  "storeName": "示例门店（非真实门店）",
+  "fetchedAt": "2026-10-13T06:00:00.000Z",
+  "items": [
+    { "code": "M1001", "name": "巨无霸", "price": 25, "category": "汉堡", "tags": ["经典"] },
+    { "code": "M1002", "name": "巨无霸四件套", "price": 39.5, "category": "套餐", "tags": ["套餐"] },
+    { "code": "M1003", "name": "麦辣鸡腿汉堡", "price": 24, "category": "汉堡", "tags": ["辣"] },
+    { "code": "M1004", "name": "双层吉士汉堡", "price": 22, "category": "汉堡", "tags": ["经典"] },
+    { "code": "M1005", "name": "麦乐鸡（5块）", "price": 13.5, "category": "小食", "tags": ["可分享"] },
+    { "code": "M1006", "name": "麦乐鸡分享盒（20块）", "price": 42, "category": "小食", "tags": ["分享"] },
+    { "code": "M1007", "name": "板烧鸡腿堡", "price": 24, "category": "汉堡", "tags": ["不辣"] },
+    { "code": "M1008", "name": "奥利奥麦旋风", "price": 12, "category": "甜品", "tags": ["经典"] },
+    { "code": "M1009", "name": "麦香鱼", "price": 20, "category": "汉堡", "tags": ["冷门经典"] },
+    { "code": "M1010", "name": "香芋派", "price": 8, "category": "甜品", "tags": ["限时"] },
+    { "code": "M1011", "name": "那么大鸡排", "price": 19, "category": "小食", "tags": ["大份"] },
+    { "code": "M1012", "name": "薯饼", "price": 7, "category": "早餐", "tags": ["早餐"] },
+    { "code": "M1013", "name": "吉士汉堡", "price": 15, "category": "汉堡", "tags": ["经典"] },
+    { "code": "M1014", "name": "麦香鸡", "price": 15, "category": "汉堡", "tags": ["经典"] },
+    { "code": "M1015", "name": "麦辣鸡翅（2块）", "price": 14, "category": "小食", "tags": ["辣", "限时"] },
+    { "code": "M1016", "name": "中薯条", "price": 12, "category": "小食", "tags": ["可分享"] },
+    { "code": "M1017", "name": "大薯条", "price": 15, "category": "小食", "tags": ["分享"] },
+    { "code": "M1018", "name": "麦麦脆汁鸡", "price": 21, "category": "小食", "tags": ["新品"] },
+    { "code": "M1019", "name": "圆筒冰淇淋", "price": 6, "category": "甜品", "tags": ["经典"] },
+    { "code": "M1020", "name": "中杯可乐", "price": 9, "category": "饮料", "tags": ["经典"] }
+  ]
+}

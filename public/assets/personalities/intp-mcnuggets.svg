@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="麦乐鸡（蘸酱研究型）原创拟人插画">
+  <defs>
+    <linearGradient id="bg-INTP" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#FFC72C33"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg-INTP)"/>
+  <circle cx="330" cy="80" r="52" fill="#FFC72C" opacity=".38"/>
+  <circle cx="70" cy="330" r="38" fill="#D92D20" opacity=".18"/>
+  <circle cx="165" cy="215" r="34" fill="#D92D20"/><circle cx="235" cy="215" r="34" fill="#D92D20" opacity=".72"/><circle cx="200" cy="280" r="34" fill="#D92D20" opacity=".5"/>
+  <text x="200" y="372" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#2C211C">麦乐鸡</text>
+</svg>

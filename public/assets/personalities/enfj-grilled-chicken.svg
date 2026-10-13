@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="板烧鸡腿堡（全员照顾型）原创拟人插画">
+  <defs>
+    <linearGradient id="bg-ENFJ" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#F8B4D933"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg-ENFJ)"/>
+  <circle cx="330" cy="80" r="52" fill="#F8B4D9" opacity=".38"/>
+  <circle cx="70" cy="330" r="38" fill="#8D63B8" opacity=".18"/>
+  <rect x="125" y="170" width="150" height="130" rx="26" fill="#8D63B8"/><circle cx="200" cy="235" r="34" fill="#fff" opacity=".45"/>
+  <text x="200" y="372" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#2C211C">板烧鸡腿堡</text>
+</svg>

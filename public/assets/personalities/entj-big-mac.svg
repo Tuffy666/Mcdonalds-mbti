@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="巨无霸（全场控局型）原创拟人插画">
+  <defs>
+    <linearGradient id="bg-ENTJ" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#FFC72C33"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg-ENTJ)"/>
+  <circle cx="330" cy="80" r="52" fill="#FFC72C" opacity=".38"/>
+  <circle cx="70" cy="330" r="38" fill="#D92D20" opacity=".18"/>
+  <rect x="120" y="150" width="160" height="52" rx="14" fill="#D92D20"/><rect x="120" y="212" width="160" height="52" rx="14" fill="#D92D20" opacity=".78"/><rect x="120" y="274" width="160" height="52" rx="14" fill="#D92D20" opacity=".56"/>
+  <text x="200" y="372" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#2C211C">巨无霸</text>
+</svg>

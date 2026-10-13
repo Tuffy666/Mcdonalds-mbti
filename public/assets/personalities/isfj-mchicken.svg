@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="麦香鸡（安静守候型）原创拟人插画">
+  <defs>
+    <linearGradient id="bg-ISFJ" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#4E9BD833"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg-ISFJ)"/>
+  <circle cx="330" cy="80" r="52" fill="#4E9BD8" opacity=".38"/>
+  <circle cx="70" cy="330" r="38" fill="#659B5E" opacity=".18"/>
+  <rect x="135" y="175" width="130" height="120" rx="20" fill="#659B5E"/><circle cx="200" cy="215" r="20" fill="#fff" opacity=".42"/>
+  <text x="200" y="372" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#2C211C">麦香鸡</text>
+</svg>

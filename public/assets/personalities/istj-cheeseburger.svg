@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="吉士汉堡（经典可靠型）原创拟人插画">
+  <defs>
+    <linearGradient id="bg-ISTJ" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#4E9BD833"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg-ISTJ)"/>
+  <circle cx="330" cy="80" r="52" fill="#4E9BD8" opacity=".38"/>
+  <circle cx="70" cy="330" r="38" fill="#659B5E" opacity=".18"/>
+  <rect x="130" y="185" width="140" height="110" rx="16" fill="#659B5E"/><rect x="130" y="215" width="140" height="22" fill="#fff" opacity=".5"/><rect x="130" y="250" width="140" height="22" fill="#fff" opacity=".32"/>
+  <text x="200" y="372" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#2C211C">吉士汉堡</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" width="520" height="320" role="img" aria-label="麦门人格研究所原创主视觉插画">
+  <defs>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D92D20"/>
+      <stop offset="100%" stop-color="#FFC72C"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="320" rx="32" fill="#FFF8E7"/>
+  <circle cx="120" cy="150" r="78" fill="url(#hero)" opacity=".92"/>
+  <rect x="215" y="80" width="230" height="46" rx="16" fill="#2C211C" opacity=".88"/>
+  <rect x="215" y="140" width="180" height="46" rx="16" fill="#659B5E" opacity=".85"/>
+  <rect x="215" y="200" width="205" height="46" rx="16" fill="#4E9BD8" opacity=".85"/>
+  <circle cx="120" cy="150" r="34" fill="#FFF8E7" opacity=".9"/>
+</svg>

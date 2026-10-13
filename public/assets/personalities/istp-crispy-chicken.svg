@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="麦麦脆汁鸡（动手解决型）原创拟人插画">
+  <defs>
+    <linearGradient id="bg-ISTP" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#D92D2033"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg-ISTP)"/>
+  <circle cx="330" cy="80" r="52" fill="#D92D20" opacity=".38"/>
+  <circle cx="70" cy="330" r="38" fill="#FFC72C" opacity=".18"/>
+  <rect x="130" y="190" width="140" height="90" rx="18" fill="#FFC72C"/><path d="M160 320 L200 265 L240 320 Z" fill="#FFC72C" opacity=".7"/>
+  <text x="200" y="372" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#2C211C">麦麦脆汁鸡</text>
+</svg>

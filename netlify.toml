@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA 回退：直接访问 /quiz、/result、/gallery/ENTJ 时返回 index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

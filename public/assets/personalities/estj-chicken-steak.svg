@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="那么大鸡排（结果导向型）原创拟人插画">
+  <defs>
+    <linearGradient id="bg-ESTJ" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#4E9BD833"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg-ESTJ)"/>
+  <circle cx="330" cy="80" r="52" fill="#4E9BD8" opacity=".38"/>
+  <circle cx="70" cy="330" r="38" fill="#659B5E" opacity=".18"/>
+  <rect x="115" y="185" width="170" height="100" rx="18" fill="#659B5E"/><rect x="145" y="215" width="110" height="40" rx="12" fill="#fff" opacity=".4"/>
+  <text x="200" y="372" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#2C211C">那么大鸡排</text>
+</svg>

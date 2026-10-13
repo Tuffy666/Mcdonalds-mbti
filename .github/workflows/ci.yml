@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: 安装依赖
+        run: npm install --no-audit --no-fund
+
+      - name: 配置校验
+        run: npm run validate
+
+      - name: 生成占位插画
+        run: node scripts/generate-assets.mjs
+
+      - name: 单元测试
+        run: npm test
+
+      - name: 类型检查 + 构建
+        run: npm run build
+
+      - name: 冒烟测试
+        run: |
+          npm run preview -- --port 4173 --host 127.0.0.1 &
+          npx wait-on http://127.0.0.1:4173 --timeout 30000
+          node scripts/smoke-e2e.mjs --url http://127.0.0.1:4173 --shot smoke-result.png
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: smoke-result
+          path: smoke-result.png
+          if-no-files-found: ignore

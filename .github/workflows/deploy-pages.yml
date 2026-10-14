@@ -1,0 +1,57 @@
+name: 部署到 GitHub Pages
+
+# 一次性配置：仓库 Settings → Pages → Source 选择 "GitHub Actions"，
+# 之后每次推送到 main 都会自动构建并发布在线试玩版。
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: 安装依赖
+        run: npm install --no-audit --no-fund
+
+      - name: 生成占位插画（官方产品图已在仓库内，不会被覆盖）
+        run: node scripts/generate-assets.mjs
+
+      - name: 构建（子路径 base 适配 GitHub Pages 项目站点）
+        run: npm run build
+        env:
+          VITE_BASE: /Mcdonalds-mbti/
+
+      - name: 生成 SPA 回退页（深链接刷新不 404）
+        run: cp dist/index.html dist/404.html
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

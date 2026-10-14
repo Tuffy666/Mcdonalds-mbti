@@ -17,15 +17,38 @@
 - [这是什么](#-这是什么)
 - [目标用户](#-目标用户)
 - [核心流程](#-核心流程)
+- [在线试玩](#-在线试玩)
 - [本地运行](#-本地运行)
 - [使用示例](#-使用示例)
 - [项目结构](#-项目结构)
 - [人格体系与计分规则](#-人格体系与计分规则)
+- [人格文案在哪里改](#-人格文案在哪里改)
 - [与麦当劳 MCP 的集成](#-与麦当劳-mcp-的集成)
 - [测试](#-测试)
 - [部署](#-部署)
 - [已知配置冲突与处理方式](#-已知配置冲突与处理方式)
 - [版权与合规](#-版权与合规)
+
+---
+
+## 🌐 在线试玩
+
+不想装环境？点开就能玩（无需 Token、无需登录）：
+
+**<https://tuffy666.github.io/Mcdonalds-mbti/>**
+
+首次部署需要在仓库 **Settings → Pages → Source** 选择 **GitHub Actions**，
+之后每次推送到 `main` 都会由 [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml) 自动构建发布。
+
+三条玩法路线，按门槛从低到高：
+
+| 玩法 | 需要什么 | 怎么做 |
+|---|---|---|
+| ① 玩 H5 | 一个浏览器 | 打开上面的链接（或本地 `npm run dev`）→ 答题 → 看结果 / 图鉴 / 导出结果卡 |
+| ② 命令行算人格 | Node.js ≥ 18 | `node scripts/score.mjs --answers "D,C,D,..."` 直接出人格档案与套餐方案 |
+| ③ 真实下单链路 | WorkBuddy + 麦当劳 MCP Token | 把结果页「复制人格档案」的内容粘贴给 Agent，见 [使用示例 4](#示例-4完整链路workbuddy--麦当劳-mcp) |
+
+> 只玩 ① 和 ② 完全不需要任何 Token，也不联网调用任何 AI 接口 —— 计分与选品都是本地确定性引擎。
 
 ---
 
@@ -222,6 +245,10 @@ maimen-personality-mcp/
 │   ├── validate-config.mjs     配置校验 CLI
 │   └── generate-assets.mjs     生成 17 张原创 SVG 插画
 │
+├── .github/workflows/
+│   ├── ci.yml                  推送即校验（校验 / 单测 / 构建 / 冒烟）
+│   └── deploy-pages.yml        自动发布在线试玩版到 GitHub Pages
+│
 ├── tests/engine.test.mjs       12 项单元测试
 ├── examples/                   离线可跑通的示例答案与菜单
 ├── public/assets/              原创 SVG（16 张人格插画 + 主视觉 + favicon）
@@ -269,6 +296,27 @@ maimen-personality-mcp/
 后者强调“结束磨叽、接管决策”，必须 Q20-D。
 
 具体触发条件见 `engine/scoring.mjs` 的 `evaluateHiddenRules()`，人类可读版本写在 `engine/hidden.mjs` 的 `ruleText`。
+
+## ✍️ 人格文案在哪里改
+
+**所有人格介绍都在 `engine/` 目录，不在 `src/` 里** —— 前端、CLI、Agent Skill 共用同一份配置，
+改一处三处同时生效，不存在第二份文案。改完跑 `npm run validate && npm test` 即可。
+
+| 想改什么 | 文件 | 字段 |
+|---|---|---|
+| 16 种**主人格**的全部介绍 | `engine/personalities.mjs` | `description` 完整解读、`dailyTraits` 麦门日常、`weakness` 隐藏软肋、`misunderstood` 易被误解、`declaration` 宣言、`shareQuote` 分享金句、`bestMatchType` / `bestMatchText` 最佳饭搭子、`title`、`themeColor` |
+| 每个人格对应的**产品与图片** | `engine/personalities.mjs` | `product` 本命单品、`productImage` 官方产品图（`public/assets/products/`）、`image` 原创插画兜底 |
+| 8 种**隐藏人格 / 彩蛋**的全部介绍 | `engine/hidden.mjs` | `name`、`title`、`declaration`、`description`、`keywords`、`storeScene` 麦门表现、`weakness`、`shareQuote`、`rarityLabel` 彩蛋稀有度、`eggAction` 彩蛋动作 |
+| 隐藏人格的**触发条件** | `engine/scoring.mjs` | `evaluateHiddenRules()`；人类可读规则同步写在 `hidden.mjs` 的 `ruleText` |
+| 隐藏人格的**冲突优先级** | `engine/hidden.mjs` | `priority`（数字越小越优先） |
+| 人格的**点单偏好** | `engine/profile.mjs` | `HIDDEN_MEAL_PREFERENCE`（隐藏人格点单模式）、`resolveAvoidList()` 等维度 → 策略映射 |
+| **选品规则**（什么维度配什么菜） | `engine/meal-plan.mjs` | `buildMealPlan()` 的 6 条规则 |
+| **20 道题**与四维权重 | `engine/questions.mjs` | 题干、选项、分值、行为标签 |
+
+在页面上浏览全部文案：图鉴页 `/gallery`（16 型分组）与 `/gallery/:type`（单人详情）；
+开发模式下的 `/debug` 可逐个预览 16 + 8 种结果，不用真做题。
+
+> 改完记得跑校验：`npm run validate` 会检查题量、选项数、分值合法性、产品唯一性、必填文案是否齐全。
 
 ## 🔌 与麦当劳 MCP 的集成
 
@@ -323,8 +371,13 @@ npm run validate   # ✅ 配置校验通过（同时输出 1 条已知冲突提�
 
 - **Vercel**：仓库已带 `vercel.json`（含 rewrites 与静态资源缓存头），导入即可。
 - **Netlify**：仓库已带 `netlify.toml`（含 `/* → /index.html` 200 重写）。
-- **GitHub Pages**：设置 `base` 为仓库名后构建，并把 `dist/index.html` 复制一份为 `dist/404.html`。
+- **GitHub Pages**：仓库已带 [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml)，
+  在 **Settings → Pages → Source** 选 **GitHub Actions** 即可自动发布
+  （工作流已自动处理 `VITE_BASE=/Mcdonalds-mbti/` 子路径与 `404.html` 回退）。
 - **Cloudflare Pages**：构建命令 `npm run build`，输出目录 `dist`，新建 `_redirects` 写入 `/* /index.html 200`。
+
+> 部署在子路径时不需要改代码：`vite.config.ts` 读取 `VITE_BASE` 环境变量注入 `base`，
+> 前端路由的 `basename` 与静态资源路径都跟随 `import.meta.env.BASE_URL` 自动适配。
 
 ## ⚠️ 已知配置冲突与处理方式
 

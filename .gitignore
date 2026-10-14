@@ -36,3 +36,4 @@ mcp_token
 coverage/
 playwright-report/
 test-results/
+smoke-result.png
